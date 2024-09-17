@@ -36,5 +36,5 @@ def get_byId (txn_id_in) :
     
 
 def get_byPic (pic_in) : 
-    txn_test2 = Transaction.query.filter_by(pic = pic_in).first()
+    return Transaction.query.filter_by(pic = pic_in).first()
 
