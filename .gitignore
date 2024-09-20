@@ -1,2 +1,6 @@
 __pycache__
 instance
+env/
+.env
+hist.json
+instance/

@@ -1,21 +1,21 @@
 from db_func.models import Transaction
 from db_func import db 
+from flask import jsonify
 
 # creating the DB, if you want to restart the database just delete the site.db file and run this. 
 def initiate () : 
     db.create_all()
 
 
-def add_txn (txn_id_in, txn_date_in, exchange_in, pic_in, position_in, txn_type_in, token_amt_in, usd_amt_in) : 
+def add_txn (txn_date_in, position_in, txn_type_in, pic_in, exchange_in, token_amt_in, price_in, usd_amt_in) : 
     trans = Transaction(
-        txn_id = txn_id_in,
         txn_date = txn_date_in,
-        exchange = exchange_in,
-        pic = pic_in,
         position = position_in,
-        # buy / sell 
-        txn_type = txn_type_in,
+        txn_type = txn_type_in, # buy / sell 
+        pic = pic_in,
+        exchange = exchange_in,
         token_amt = token_amt_in,
+        token_price = price_in,
         usd_amt = usd_amt_in
     ) 
 
@@ -29,6 +29,8 @@ def get_all () :
 
     for query in all_queries : 
         print(query)
+
+    return all_queries
 
 
 def get_byId (txn_id_in) : 
