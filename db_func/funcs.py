@@ -1,5 +1,6 @@
 from db_func.models import Transaction
 from db_func import db 
+from flask import jsonify
 
 # creating the DB, if you want to restart the database just delete the site.db file and run this. 
 def initiate () : 
@@ -28,6 +29,8 @@ def get_all () :
 
     for query in all_queries : 
         print(query)
+
+    return all_queries
 
 
 def get_byId (txn_id_in) : 

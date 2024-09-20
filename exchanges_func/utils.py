@@ -1,4 +1,8 @@
-from exchanges_func import *
+import json
+import math
+import os
+from datetime import datetime
+import requests
 
 def save_to_json(data, filename):
     with open(filename, 'w') as json_file:
